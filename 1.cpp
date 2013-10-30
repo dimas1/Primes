@@ -1,19 +1,31 @@
 #include <iostream>
+#include <conio.h>
 using namespace std;
-
 void main()
 {
-	int n;
-	cout << "Введите N: ";
+	setlocale(0, "");
+	int n, a, kol = 0;
+	cout << "Введите количество членов: ";
 	cin >> n;
-	cout << "Введите " << n << " целых чисел" << endl;
-	int a, primes = 0;
-	for (int i = 0, j; i < n; i++) {
+	if (n <= 0) {
+		cout << "Вы ввели неверное значение!";
+		_getch();
+		exit(0);
+	}
+	for (int i = 1, j; i <= n; i++) {
+		cout << "Введите " << i << " член: ";
 		cin >> a;
 		if (a >= 2) {
-			for (j = 2; j < a; j++) { if (a % j == 0) break; }
-			if (a == j) primes++;
+			bool isPrime = true;
+			for (j = 2; j < a; j++) {
+				if (a%j == 0) {
+					isPrime = false;
+					break;
+				}
+			}
+			if (isPrime == true) kol++;
 		}
 	}
-	cout << "Количество простых чисел = " << primes << endl;
+	cout << "\nКоличество простых чисел: " << kol << endl;
+	_getch();
 }
