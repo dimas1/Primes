@@ -7,7 +7,7 @@ void main()
 	int n;
 	cout << "Введите N: ";
 	cin >> n;
-	while (n < 1)
+	while (n <= 0)
 	{
 		cout << "[X] Введите положительное число N: ";
 		cin >> n;
